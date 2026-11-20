@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: "Inter";
+  --font-jetbrains: "JetBrains Mono";
+  --background: 223 21% 6%; /* #0D0F14 */
+  --foreground: 210 20% 94%;
+  --card: 221 24% 11%; /* #151922 */
+  --card-foreground: 210 20% 94%;
+  --popover: 221 24% 11%;
+  --popover-foreground: 210 20% 94%;
+  --primary: 320 100% 50%; /* #FF00A8 */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 223 24% 15%; /* #1C212E */
+  --secondary-foreground: 210 20% 94%;
+  --muted: 223 24% 15%;
+  --muted-foreground: 216 14% 63%;
+  --accent: 223 24% 18%;
+  --accent-foreground: 210 20% 94%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 222 21% 19%; /* #262C3A */
+  --input: 223 24% 19%;
+  --ring: 170 100% 48%; /* #00F5D4 */
+  --cyan: 170 100% 48%;
+  --magenta: 320 100% 50%;
+  --amber-low: 38 92% 50%;
+  --radius: 0.625rem;
+}
+
+.light {
+  --background: 210 33% 98%;
+  --foreground: 223 21% 10%;
+  --card: 0 0% 100%;
+  --card-foreground: 223 21% 10%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 223 21% 10%;
+  --primary: 320 90% 44%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 24% 94%;
+  --secondary-foreground: 223 21% 12%;
+  --muted: 210 24% 94%;
+  --muted-foreground: 215 14% 42%;
+  --accent: 210 24% 92%;
+  --accent-foreground: 223 21% 12%;
+  --destructive: 0 84% 52%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 213 22% 86%;
+  --input: 213 22% 86%;
+  --ring: 172 85% 34%;
+}
+
+* { border-color: hsl(var(--border)); }
+body {
+  margin: 0;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.font-mono, .tabular { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+.text-brand-gradient {
+  background: linear-gradient(135deg, #00F5D4 0%, #FF00A8 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.tactical-grid {
+  background-image: linear-gradient(to right, hsl(var(--border) / .45) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--border) / .45) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 999px; }
+::-webkit-scrollbar-track { background: transparent; }
