@@ -1,19 +1,20 @@
+# Use this config to serve the built site AND the API from the Worker.
+# Build web/ first, then run: npm run deploy:site
+# Keep secrets and vars in sync with wrangler.toml.
+
 name = "snipetag-api"
 main = "src/index.ts"
 compatibility_date = "2026-11-20"
 compatibility_flags = ["nodejs_compat"]
 workers_dev = true
 
-# Origin of the GitHub Pages site (comma-separated for multiple origins)
 [vars]
-# Public site origin (GitHub Pages or Worker custom domain)
-SITE_URL = "https://username.github.io/SnipeTag"
-APP_URL = "https://snipetag-api.example.workers.dev"
+SITE_URL = "https://snipetag.synchstream.workers.dev"
+APP_URL = "https://snipetag.synchstream.workers.dev"
 ALERTS_FROM_EMAIL = "SnipeTag <alerts@snipetag.app>"
-ALLOWED_ORIGIN = "https://username.github.io"
+ALLOWED_ORIGIN = "https://snipetag.synchstream.workers.dev"
 
-# Optional: enriches Web Push messages with product-specific text.
-# Create with `npx wrangler kv namespace create PUSH_KV`, then uncomment and set the ID.
+# Optional: richer Web Push text.
 # [[kv_namespaces]]
 # binding = "PUSH_KV"
 # id = "your-kv-namespace-id"
@@ -21,8 +22,6 @@ ALLOWED_ORIGIN = "https://username.github.io"
 [triggers]
 crons = ["*/5 * * * *"]
 
-# This Worker is API-only by default: the static site is hosted on GitHub Pages.
-# To serve web/dist from the Worker instead, build the site first and add:
-#   [assets]
-#   directory = "../web/dist"
-#   binding = "ASSETS"
+[assets]
+directory = "../web/dist"
+binding = "ASSETS"
