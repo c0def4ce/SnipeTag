@@ -1,0 +1,31 @@
+{
+  "id": "./",
+  "name": "SnipeTag — Live Deal Sniper",
+  "short_name": "SnipeTag",
+  "description": "Real-time price drops, restock sniper and cross-store deal discovery across 100+ retailers.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#0D0F14",
+  "theme_color": "#0D0F14",
+  "categories": ["shopping", "productivity", "finance"],
+  "lang": "en-GB",
+  "icons": [
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Snipe a product URL", "short_name": "Snipe", "url": "./snipe", "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Triggered alerts", "short_name": "Alerts", "url": "./alerts", "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192" }] }
+  ],
+  "share_target": {
+    "action": "./snipe",
+    "method": "GET",
+    "enctype": "application/x-www-form-urlencoded",
+    "params": { "url": "url", "text": "text", "title": "title" }
+  },
+  "prefer_related_applications": false
+}

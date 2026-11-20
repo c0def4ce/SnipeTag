@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+  <head><meta charset="utf-8" /><title>SnipeTag</title></head>
+  <body>
+    <script>
+      // GitHub Pages SPA fallback: send the requested path through the query string.
+      // src/main.tsx restores it with history.replaceState before React Router mounts.
+      var parts = location.pathname.split("/");
+      var base = parts.slice(0, -1).join("/");
+      var target = location.pathname + location.search + location.hash;
+      location.replace(base + "/index.html?/" + encodeURIComponent(target));
+    </script>
+  </body>
+</html>
