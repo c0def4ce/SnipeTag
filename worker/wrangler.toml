@@ -12,14 +12,17 @@ APP_URL = "https://snipetag-api.example.workers.dev"
 ALERTS_FROM_EMAIL = "SnipeTag <alerts@snipetag.app>"
 ALLOWED_ORIGIN = "https://username.github.io"
 
-[[kv_namespaces]]
-binding = "PUSH_KV"
-id = "replace-with-your-kv-namespace-id"
+# Optional: enriches Web Push messages with product-specific text.
+# Create with `npx wrangler kv namespace create PUSH_KV`, then uncomment and set the ID.
+# [[kv_namespaces]]
+# binding = "PUSH_KV"
+# id = "your-kv-namespace-id"
 
 [triggers]
 crons = ["*/5 * * * *"]
 
-# Optional: let the Worker also serve the built static site (web/dist).
-[assets]
-directory = "../web/dist"
-binding = "ASSETS"
+# This Worker is API-only by default: the static site is hosted on GitHub Pages.
+# To serve web/dist from the Worker instead, build the site first and add:
+#   [assets]
+#   directory = "../web/dist"
+#   binding = "ASSETS"
